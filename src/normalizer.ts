@@ -143,11 +143,11 @@ export class Normalizer
         const distinctProps = this.distinctProps(firstRow);
         const distinctTypes = this.distinctTypes(firstRow);
 
-        let metadata = {};
-        let bitDataset = [];
+        let metadata: any = {};
+        let bitDataset: any = [];
 
         for (let prop of distinctProps) {
-            const type = distinctTypes[prop];
+          const type: string = (<any>distinctTypes)[prop];
 
             metadata[prop] = {
                 type: type,
@@ -259,7 +259,7 @@ export class Normalizer
      */
     strToBitsArr(distinctValues: any, val: string)
     {
-        let bitArr = new Array(distinctValues.length);
+        let bitArr: any = new Array(distinctValues.length);
         bitArr.fill(0);
 
         for (let i in distinctValues) {
@@ -292,7 +292,7 @@ export class Normalizer
 
     distinctTypes(row: RowInput)
     {
-        let distinctTypes = {};
+        let distinctTypes: any = {};
 
         for (let prop in row) {
             const value = row[prop];
